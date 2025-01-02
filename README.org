@@ -1,1 +1,78 @@
-This projects is an implementation of Elliptical Curve Cryptography over a Field. The main file is ecc.py
+```markdown
+# Elliptic Curve Cryptography (ECC) - TME 5
+
+This project is a collection of Python functions implementing elliptic curve cryptography (ECC) over finite fields. The functions cover various aspects of ECC, including operations on elliptic curves, point arithmetic, and more.
+
+## Team Members
+
+- **Aime Cesaire Mugishawayo** (21340522)
+- **Alex Maloigne** (21105949)
+- **Saarah Khodadin**
+
+## Functions Overview
+
+The project contains the following key functions:
+
+### Helper Functions
+- **`exp(a, N, p)`**: Fast modular exponentiation.
+- **`factor(n)`**: Factorizes a number `n` into its prime factors.
+- **`inv_mod(x, p)`**: Computes the modular inverse of `x` modulo `p`.
+- **`racine_carree(a, p)`**: Computes the square root of `a` modulo `p` when `p ≡ 3 (mod 4)`.
+
+### Elliptic Curve Functions
+- **`est_elliptique(E)`**: Checks if a curve `E` is elliptic.
+- **`point_sur_courbe(P, E)`**: Verifies if a point `P` lies on the curve `E`.
+- **`symbole_legendre(a, p)`**: Computes the Legendre symbol of `a` modulo `p`.
+- **`cardinal(E)`**: Returns the cardinality (order) of the elliptic curve group defined by `E`.
+- **`liste_points(E)`**: Returns a list of points on the elliptic curve `E`.
+
+### Point Operations
+- **`addition(P1, P2, E)`**: Adds two points `P1` and `P2` on the elliptic curve `E`.
+- **`multiplication_scalaire(k, P, E)`**: Computes the scalar multiplication `k * P` on the elliptic curve `E`.
+
+### Curve Distribution and Visualization
+- **`cardinaux_courbes(p)`**: Returns a distribution of the number of elliptic curves with various orders over `F_p`.
+- **`dessine_graphe(p)`**: Plots the distribution of cardinalities of elliptic curves over `F_p`.
+
+## Installation
+
+Ensure you have Python 3.x and the necessary libraries installed:
+
+```bash
+pip install matplotlib
+```
+
+## Usage
+
+You can call the functions directly in your Python scripts. Here is an example of how to use the elliptic curve functions:
+
+```python
+E = (360040014289779780338359, 117235701958358085919867, 18575864837248358617992)  # Example curve
+P = (123456789012345678901234, 987654321098765432109876)  # Example point
+
+# Check if the curve is elliptic
+if est_elliptique(E):
+    print("The curve is elliptic.")
+else:
+    print("The curve is not elliptic.")
+
+# Check if a point lies on the curve
+if point_sur_courbe(P, E):
+    print("The point is on the curve.")
+else:
+    print("The point is not on the curve.")
+```
+
+## Testing
+
+For testing purposes, the functions `test-4-liste-points.py` can be used to verify the correctness of the point list and other operations.
+
+## References
+
+- Cryptography based on elliptic curves
+- Hasse's Theorem and the distribution of elliptic curve orders
+
+## License
+
+This project is licensed under the MIT License.
+```
